@@ -5,7 +5,7 @@ import {
   selectorHanddler,
   increment,
   decrement,
-} from '../redux/features/slideMovieSlice'
+} from '../../../redux/features/slices/slideMovieSlice'
 import { motion as m } from 'framer-motion'
 
 type SelectorProps = {

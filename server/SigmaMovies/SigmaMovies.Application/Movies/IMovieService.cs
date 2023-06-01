@@ -17,7 +17,7 @@ namespace SigmaMovies.Application.Movies
         Task<Movie> AddActorToMovie(Movie Movie, List<string> actorNames, CancellationToken cancellationToken);
         Task<int> CreateMovie(MovieRequestModel movie, CancellationToken cancellationToken);
         Task DeleteMovie(int id, CancellationToken cancellationToken);
-        Task<List<MovieResponseModel>> GetAllMovies(CancellationToken cancellationToken, PaginationFilter paginationFilter, string? sortBy = null, string? genre = null, int? year = null, bool? isDeleted = null);
+        Task<(List<MovieResponseModel> Movies, int TotalPages)> GetAllMovies(CancellationToken cancellationToken, PaginationFilter paginationFilter, string? sortBy = null, string? genre = null, int? year = null, bool? isDeleted = null);
         Task<MovieResponseModel> GetMovieById(CancellationToken cancellationToken, int Id);
         Task UpdateMovieAsync(CancellationToken cancellationToken, MovieRequestPutModel movie);
         Task UpdatePatchMovie(int id, JsonPatchDocument<Movie> movie, CancellationToken cancellationToken);

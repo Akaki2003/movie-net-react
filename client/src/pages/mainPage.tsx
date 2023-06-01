@@ -1,5 +1,5 @@
 import React from 'react'
-import TVcomponent from '../components/TVcomponent'
+import TVcomponent from './MainPage/Screen-components/TVcomponent'
 import MoviesGrid from './MoviesGrid'
 import AuthPage from './Registration/AuthPage'
 const MainPage = () => {
@@ -9,7 +9,7 @@ const MainPage = () => {
 
   return (
     <main className={style.main}>
-      <TVcomponent />
+      {/* <TVcomponent /> */}
       <MoviesGrid />
     </main>
   )

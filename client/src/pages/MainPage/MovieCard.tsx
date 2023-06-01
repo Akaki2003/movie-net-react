@@ -1,9 +1,10 @@
 import React, { FC } from 'react'
-import { movieDataType } from '../assets/dummydata/data'
-import RatingComponent from './RatingComponent'
-import imbd from '../assets/icons/imdb.png'
+import { movieDataType } from '../../assets/dummydata/data'
+import RatingComponent from './Screen-components/RatingComponent'
+import imbd from '../../assets/icons/imdb.png'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { motion as m } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 const MovieCard: FC<movieDataType> = (data) => {
   const style = {
     mainDiv: ` relatie w-[360px] h-[600px] relative   flex items-center justify-between flex-col rounded-[20px] rounded-b-[30px] `,
@@ -17,8 +18,13 @@ const MovieCard: FC<movieDataType> = (data) => {
     metadata: `text-white flex items-center gap-2`,
     line: `w-[1px] h-[15px] bg-white`,
   }
+  const navigate = useNavigate()
   return (
-    <m.div className={style.mainDiv} style={{ backgroundColor: data.color2 }}>
+    <m.div
+      onClick={() => navigate(`/movie/${String(data.id)}`)}
+      className={style.mainDiv}
+      style={{ backgroundColor: data.color2 }}
+    >
       <div className="overLay"></div>
       <div className={style.topDiv}>
         <AiOutlineHeart className={style.icon} />
@@ -29,7 +35,7 @@ const MovieCard: FC<movieDataType> = (data) => {
         <h1 className={style.header} style={{ color: `${data.color2}` }}>
           {data.title}
         </h1>
-        <p className={style.p}>{data.dec.slice(0, 150)}...</p>
+        <p className={style.p}>{data?.description?.slice(0, 150)}...</p>
 
         <div className={style.bottomDiv}>
           <RatingComponent
@@ -42,12 +48,7 @@ const MovieCard: FC<movieDataType> = (data) => {
             <p>{data.metadata.hr}</p>
             <div className={style.line}></div>
             <div className="flex gap-1 ">
-              {data.metadata.genre.map((val: string, index: number) => (
-                <p>
-                  {val}
-                  {index === 0 && ','}
-                </p>
-              ))}
+              <p>{data.metadata.genre}</p>
             </div>
             <div className={style.line}></div>
             <p> {data.metadata.year}</p>

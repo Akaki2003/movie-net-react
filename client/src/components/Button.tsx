@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { motion as m } from 'framer-motion'
-import { Action } from '../components/Screen'
+import { Action } from '../pages/MainPage/Screen-components/Screen'
 type ButtonTypeProp = {
   color: string
   spec: string

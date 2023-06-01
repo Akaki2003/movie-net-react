@@ -3,6 +3,7 @@ import Navbtn from './Navbtn'
 import { MdFavorite } from 'react-icons/md'
 import { IoMdAdd } from 'react-icons/io'
 import { RiLogoutCircleLine } from 'react-icons/ri'
+import { AiFillStar } from 'react-icons/ai'
 import { LogOut } from '../../redux/features/slices/AuthSlice'
 import { useDispatch } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
@@ -15,7 +16,7 @@ type NavDropDownProp = {
 const NavDropDown: FC<NavDropDownProp> = ({ setDropDown }) => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const style = {
-    mainDiv: `w-[300px] py-2 h-[370px] dropdownbg  boxshaddow absolute right-3 top-[6rem] flex flex-col justify-start pt-10 gap-5 items-center px-10   rounded-[20px]`,
+    mainDiv: `w-[300px] py-2 h-[370px] dropdownbg z-50  boxshaddow absolute right-3 top-[6rem] flex flex-col items-center pl-8 justify-start pt-10 gap-5     rounded-[20px]`,
   }
   const navigate = useNavigate()
   return (
@@ -25,14 +26,23 @@ const NavDropDown: FC<NavDropDownProp> = ({ setDropDown }) => {
         title="Profile"
         Icon={CgProfile}
       />{' '}
-      <Navbtn fun={LogOut} title="Add Movie" Icon={IoMdAdd} />{' '}
+      <Navbtn
+        fun={() => navigate('/user-main')}
+        title="Add Movie"
+        Icon={IoMdAdd}
+      />
+      <Navbtn
+        fun={() => navigate('/add-actor')}
+        title="Add Actor"
+        Icon={AiFillStar}
+      />
       <Navbtn fun={LogOut} title="Favorite Movies" Icon={MdFavorite} />
       <button
         onClick={() => {
           dispatch(LogOut()), setDropDown(false)
         }}
       >
-        <Navbtn fun={LogOut} title="Log out" Icon={RiLogoutCircleLine} />{' '}
+        <Navbtn fun={LogOut} title="Log out" Icon={RiLogoutCircleLine} />
       </button>
     </div>
   )

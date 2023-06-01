@@ -1,0 +1,36 @@
+2023-05-24 21:55:57.629 +04:00  INF  Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-24 21:55:57.780 +04:00  INF  Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-24 21:55:57.789 +04:00  INF  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-24 21:55:57.793 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-24 21:55:57.848 +04:00  INF  Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-24 21:55:57.887 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-24 21:55:59.171 +04:00  INF  Executed DbCommand (348ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-24 21:55:59.203 +04:00  INF  Starting...
+2023-05-24 21:55:59.293 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-24 21:56:00.466 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-24 21:56:00.482 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-24 21:56:00.487 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-24 21:56:00.495 +04:00  INF  Hosting environment: Development
+2023-05-24 21:56:00.497 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-24 21:56:01.335 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-24 21:56:03.709 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 2384.3434ms
+2023-05-24 21:56:03.811 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-24 21:56:03.824 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 12.2393ms
+2023-05-24 21:56:03.921 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-24 21:56:04.042 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 120.2256ms
+2023-05-24 21:56:06.749 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-24 21:56:07.334 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 585.5331ms

@@ -27,7 +27,7 @@ namespace SigmaMovies.API.Controllers
         }
 
         /// <summary>
-        /// Retrieves a list of all movies.
+        /// Retrieves a list of all movies and total number of pages.
         /// </summary>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <param name="paginationFilter">The movie's pagination filter.</param>
@@ -38,9 +38,14 @@ namespace SigmaMovies.API.Controllers
         /// <response code="200">Returns an empty response.</response>
         [Route("GetAllMovies")]
         [HttpGet]
-        public async Task<List<MovieResponseModel>> GetAllMovies(CancellationToken cancellationToken, [FromQuery] PaginationFilter paginationFilter,[FromQuery] SortBy? sortBy = null, string? genre = null, int? year = null, bool? isDeleted = null)
+        public async Task<ActionResult/*<List<MovieResponseModel>>*/> GetAllMovies(CancellationToken cancellationToken, [FromQuery] PaginationFilter paginationFilter, [FromQuery] SortBy? sortBy = null, string? genre = null, int? year = null, bool? isDeleted = null)
         {
-            return await movieService.GetAllMovies(cancellationToken, paginationFilter, sortBy.HasValue ? sortBy.Value.ToString() : null, genre, year, isDeleted);
+            var response = new
+            {
+                (await movieService.GetAllMovies(cancellationToken, paginationFilter, sortBy.HasValue ? sortBy.Value.ToString() : null, genre, year, isDeleted)).Movies,
+                (await movieService.GetAllMovies(cancellationToken, paginationFilter, sortBy.HasValue ? sortBy.Value.ToString() : null, genre, year, isDeleted)).TotalPages
+            };
+            return Ok(response);
         }
 
         //COPYOFTRUE
@@ -116,7 +121,7 @@ namespace SigmaMovies.API.Controllers
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <param name="id">The movie id.</param>
         /// <response code="200">Returns an empty response.</response>
-        [HttpDelete("DeleteMovie")]
+        [HttpDelete("DeleteMovie/{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteMovie(int id, CancellationToken cancellationToken)
         {

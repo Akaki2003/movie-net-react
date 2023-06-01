@@ -1,11 +1,11 @@
 import React, { useReducer } from 'react'
 
-import imbd from '../assets/icons/imdb.png'
-import tomato from '../assets/icons/tomato.png'
+import imbd from '../../../assets/icons/imdb.png'
+import tomato from '../../../assets/icons/tomato.png'
 import RatingComponent from './RatingComponent'
 
 import Description from './Description'
-import Button from './Button'
+import Button from '../../../components/Button'
 import Actors from './Actors'
 import Video from './Video'
 import Selector from './Selector'
@@ -90,7 +90,7 @@ const Screen = () => {
       onClick={() => StopInterval()}
       className={style.screenDiv}
       style={{
-        background: ` ${movieData[index].color}   `,
+        background: ` ${movieData[index].color1}   `,
       }}
     >
       <section className="flex justify-around  ">

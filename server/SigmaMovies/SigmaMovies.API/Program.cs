@@ -12,9 +12,6 @@ using Swashbuckle.AspNetCore.Filters;
 using SigmaMovies.API.Infrastructure.Middlewares.ExceptionHandling;
 using SigmaMovies.API.Infrastructure.Middlewares.ExceptionHandler;
 using Serilog;
-using Newtonsoft.Json;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json.Converters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,17 +72,17 @@ builder.Services.AddSwaggerGen(option =>
 builder.Services.AddTokenAuthentication(builder.Configuration.GetSection(nameof(JWTConfiguration)).GetSection(nameof(JWTConfiguration.Secret)).Value);
 
 builder.Services.AddServices();
-//builder.Services.AddControllersWithViews()
-//    .AddNewtonsoftJson();
+
 
 builder.Services.Configure<ConnectionStrings>(builder.Configuration.GetSection(nameof(ConnectionStrings)));
 builder.Services.Configure<JWTConfiguration>(builder.Configuration.GetSection(nameof(JWTConfiguration)));
 
 
 builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true)
+    .AddNewtonsoftJson()
  //.AddJsonOptions(options =>
  //{
- //    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); // use this to make all enums string
+ //    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); // use this to convert all enum parameters to string
  //})
  ;
 

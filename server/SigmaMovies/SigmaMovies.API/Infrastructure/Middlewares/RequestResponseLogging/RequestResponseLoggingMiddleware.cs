@@ -1,4 +1,6 @@
-﻿using SigmaMovies.API.Infrastructure.Middlewares.RequestResponseLogging;
+﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using SigmaMovies.API.Infrastructure.Middlewares.RequestResponseLogging;
 using System.Text;
 
 namespace SigmaMovies.API.Infrastructure.Middlewares.ExceptionHandler
@@ -68,6 +70,16 @@ namespace SigmaMovies.API.Infrastructure.Middlewares.ExceptionHandler
                 QueryString = request.QueryString.ToString(),
                 Body = await ReadRequestBody(request),
             };
+
+            if (!string.IsNullOrEmpty(requestModel.Body))
+            {
+                var jsonObject = JObject.Parse(requestModel.Body);
+                if (jsonObject.ContainsKey("password"))
+                {
+                    jsonObject["password"] = new string('*', jsonObject["password"].Value<string>().Length);
+                    requestModel.Body = jsonObject.ToString();
+                }
+            }
 
             var toLog = $" logged from Middleware\n" +
                 $"IP = {requestModel.IP}\n" +

@@ -1,0 +1,844 @@
+2023-05-23 16:15:04.909 +04:00  INF  Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 16:15:05.034 +04:00  INF  Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 16:15:05.051 +04:00  INF  Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 16:15:05.055 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 16:15:05.086 +04:00  INF  Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 16:15:05.126 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 16:15:06.014 +04:00  INF  Executed DbCommand (161ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 16:15:06.033 +04:00  INF  Starting...
+2023-05-23 16:15:06.103 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 16:15:06.739 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 16:15:06.757 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 16:15:06.762 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 16:15:06.764 +04:00  INF  Hosting environment: Development
+2023-05-23 16:15:06.765 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 16:15:07.472 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 16:15:08.777 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 1305.8659ms
+2023-05-23 16:15:08.837 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 16:15:08.837 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 16:15:08.880 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 43.0879ms
+2023-05-23 16:15:09.080 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 242.9855ms
+2023-05-23 16:15:09.265 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 16:15:10.314 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1049.2178ms
+2023-05-23 16:16:12.770 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/v1/Movies/GetAllMovies - -
+2023-05-23 16:16:13.836 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-23 16:16:13.911 +04:00  INF  Route matched with {action = "GetAllMovies", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[SigmaMovies.Application.Movies.Responses.MovieResponseModel]] GetAllMovies(System.Threading.CancellationToken, SigmaMovies.Application.Pagination.PaginationFilter, System.Nullable`1[SigmaMovies.Application.HelperModels.SortBy], System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-23 16:16:33.087 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Movies] AS [m]
+2023-05-23 16:16:33.161 +04:00  WRN  The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-05-23 16:16:33.179 +04:00  WRN  The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-05-23 16:16:33.496 +04:00  INF  Executed DbCommand (22ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Metadata_Genre], [t].[Metadata_Hr], [t].[Metadata_Year], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Metadata_Genre], [m].[Metadata_Hr], [m].[Metadata_Year], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-23 16:20:05.996 +04:00  INF  Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 16:20:06.133 +04:00  INF  Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 16:20:06.140 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 16:20:06.145 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 16:20:06.172 +04:00  INF  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 16:20:06.201 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 16:20:06.665 +04:00  INF  Executed DbCommand (37ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 16:20:06.684 +04:00  INF  Starting...
+2023-05-23 16:20:06.745 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 16:20:07.087 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 16:20:07.111 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 16:20:07.114 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 16:20:07.116 +04:00  INF  Hosting environment: Development
+2023-05-23 16:20:07.117 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 16:20:08.349 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 16:20:09.025 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 678.7689ms
+2023-05-23 16:20:09.042 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 16:20:09.043 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 16:20:09.099 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 57.3403ms
+2023-05-23 16:20:09.299 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 255.1322ms
+2023-05-23 16:20:09.479 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 16:20:10.752 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1272.5612ms
+2023-05-23 16:49:52.914 +04:00  INF  Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 16:49:53.112 +04:00  INF  Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 16:49:53.221 +04:00  INF  Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 16:49:53.231 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 16:49:53.286 +04:00  INF  Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 16:49:53.327 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 16:49:54.195 +04:00  INF  Executed DbCommand (40ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 16:49:54.215 +04:00  INF  Starting...
+2023-05-23 16:49:54.303 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 16:49:54.696 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 16:49:54.722 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 16:49:54.728 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 16:49:54.732 +04:00  INF  Hosting environment: Development
+2023-05-23 16:49:54.734 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 16:49:55.613 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 16:49:56.285 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 675.2453ms
+2023-05-23 16:49:56.333 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 16:49:56.334 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 16:49:56.352 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 17.9819ms
+2023-05-23 16:49:56.599 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 266.2350ms
+2023-05-23 16:49:56.758 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 16:49:58.123 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1365.3592ms
+2023-05-23 16:55:27.639 +04:00  INF  Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 16:55:27.746 +04:00  INF  Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 16:55:27.753 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 16:55:27.759 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 16:55:27.797 +04:00  INF  Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 16:55:27.828 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 16:55:28.270 +04:00  INF  Executed DbCommand (35ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 16:55:28.284 +04:00  INF  Starting...
+2023-05-23 16:55:28.320 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 16:55:28.593 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 16:55:28.603 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 16:55:28.608 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 16:55:28.610 +04:00  INF  Hosting environment: Development
+2023-05-23 16:55:28.612 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 16:55:29.280 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 16:55:29.824 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 548.3970ms
+2023-05-23 16:55:29.883 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 16:55:29.896 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 16:55:30.017 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 133.4099ms
+2023-05-23 16:55:30.179 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 282.8664ms
+2023-05-23 16:55:30.325 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 16:55:31.435 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1109.8731ms
+2023-05-23 17:10:45.789 +04:00  INF  Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 17:10:45.932 +04:00  INF  Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 17:10:45.942 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 17:10:45.947 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 17:10:45.976 +04:00  INF  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 17:10:46.005 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 17:10:46.473 +04:00  INF  Executed DbCommand (30ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 17:10:46.488 +04:00  INF  Starting...
+2023-05-23 17:10:46.531 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 17:10:46.767 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 17:10:46.778 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 17:10:46.782 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 17:10:46.784 +04:00  INF  Hosting environment: Development
+2023-05-23 17:10:46.786 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 17:10:47.433 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 17:10:48.099 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 668.3137ms
+2023-05-23 17:10:48.155 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 17:10:48.155 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 17:10:48.182 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 26.5114ms
+2023-05-23 17:10:48.369 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 213.1136ms
+2023-05-23 17:10:48.547 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 17:10:49.663 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1116.4433ms
+2023-05-23 17:21:08.131 +04:00  INF  Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 17:21:08.277 +04:00  INF  Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 17:21:08.284 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 17:21:08.289 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 17:21:08.314 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 17:21:08.346 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 17:21:08.916 +04:00  INF  Executed DbCommand (30ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 17:21:08.932 +04:00  INF  Starting...
+2023-05-23 17:21:08.982 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 17:21:09.369 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 17:21:09.371 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 17:21:09.376 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 17:21:09.378 +04:00  INF  Hosting environment: Development
+2023-05-23 17:21:09.379 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 17:21:10.651 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 17:21:11.323 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 674.2282ms
+2023-05-23 17:21:11.329 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 17:21:11.457 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 17:21:11.713 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 255.7062ms
+2023-05-23 17:21:12.758 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 1428.6267ms
+2023-05-23 17:21:13.414 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 17:21:14.468 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1053.9992ms
+2023-05-23 18:05:42.594 +04:00  INF  Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:05:42.696 +04:00  INF  Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:05:42.702 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:05:42.705 +04:00  INF  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:05:42.724 +04:00  INF  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 18:05:42.747 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 18:05:43.232 +04:00  INF  Executed DbCommand (29ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 18:05:43.248 +04:00  INF  Starting...
+2023-05-23 18:05:43.289 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 18:05:43.836 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 18:05:43.898 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 18:05:43.901 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 18:05:43.902 +04:00  INF  Hosting environment: Development
+2023-05-23 18:05:43.903 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 18:05:45.211 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 18:05:46.085 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 876.3314ms
+2023-05-23 18:05:46.178 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 18:05:46.193 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 13.6638ms
+2023-05-23 18:05:46.238 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 18:05:46.360 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 121.8833ms
+2023-05-23 18:05:47.090 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 18:05:48.216 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1126.4045ms
+2023-05-23 18:09:13.503 +04:00  INF  Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:09:13.596 +04:00  INF  Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:09:13.603 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:09:13.607 +04:00  INF  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:09:13.625 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 18:09:13.661 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 18:09:14.037 +04:00  INF  Executed DbCommand (27ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 18:09:14.049 +04:00  INF  Starting...
+2023-05-23 18:09:14.097 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 18:09:14.333 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 18:09:14.335 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 18:09:14.339 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 18:09:14.340 +04:00  INF  Hosting environment: Development
+2023-05-23 18:09:14.341 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 18:09:14.738 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 18:09:15.316 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 582.1383ms
+2023-05-23 18:09:15.357 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 18:09:15.376 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 18:09:15.393 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 17.3265ms
+2023-05-23 18:09:15.554 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 196.8155ms
+2023-05-23 18:09:15.747 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 18:09:16.509 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 761.8587ms
+2023-05-23 18:10:31.942 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/v1/Movies/GetAllMovies?sortBy=Year - -
+2023-05-23 18:10:32.131 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-23 18:10:32.186 +04:00  INF  Route matched with {action = "GetAllMovies", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[SigmaMovies.Application.Movies.Responses.MovieResponseModel]] GetAllMovies(System.Threading.CancellationToken, SigmaMovies.Application.Pagination.PaginationFilter, System.Nullable`1[SigmaMovies.Application.HelperModels.SortBy], System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-23 18:10:32.425 +04:00  INF  Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Movies] AS [m]
+2023-05-23 18:10:32.478 +04:00  WRN  The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-05-23 18:10:32.480 +04:00  WRN  The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-05-23 18:10:32.733 +04:00  INF  Executed DbCommand (34ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Metadata_Genre], [t].[Metadata_Hr], [t].[Metadata_Year], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Metadata_Genre], [m].[Metadata_Hr], [m].[Metadata_Year], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-23 18:10:33.307 +04:00  INF  Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SigmaMovies.Application.Movies.Responses.MovieResponseModel, SigmaMovies.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-23 18:10:33.322 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API) in 1125.3195ms
+2023-05-23 18:10:33.325 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-23 18:10:33.350 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/v1/Movies/GetAllMovies?sortBy=Year - - - 200 - application/json;+charset=utf-8 1408.5815ms
+2023-05-23 18:22:13.675 +04:00  INF  Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:22:13.783 +04:00  INF  Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:22:13.789 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:22:13.792 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:22:13.813 +04:00  INF  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 18:22:13.850 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 18:22:14.321 +04:00  INF  Executed DbCommand (82ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 18:22:14.344 +04:00  INF  Starting...
+2023-05-23 18:22:14.388 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 18:22:14.754 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 18:22:14.755 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 18:22:14.759 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 18:22:14.760 +04:00  INF  Hosting environment: Development
+2023-05-23 18:22:14.762 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 18:22:15.881 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 18:22:16.431 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 551.3385ms
+2023-05-23 18:22:16.463 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 18:22:16.482 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 18:22:16.718 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 235.6610ms
+2023-05-23 18:22:17.082 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 619.4994ms
+2023-05-23 18:22:17.829 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 18:22:18.855 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1025.4927ms
+2023-05-23 18:25:29.788 +04:00  INF  Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:25:29.878 +04:00  INF  Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:25:29.885 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:25:29.889 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:25:29.910 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 18:25:29.940 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 18:25:30.332 +04:00  INF  Executed DbCommand (24ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 18:25:30.345 +04:00  INF  Starting...
+2023-05-23 18:25:30.388 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 18:25:30.658 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 18:25:30.661 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 18:25:30.665 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 18:25:30.667 +04:00  INF  Hosting environment: Development
+2023-05-23 18:25:30.668 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 18:25:31.277 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 18:25:31.873 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 602.2118ms
+2023-05-23 18:25:31.961 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 18:25:31.971 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 9.7354ms
+2023-05-23 18:25:32.001 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 18:25:32.060 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 59.6065ms
+2023-05-23 18:25:32.330 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 18:25:33.464 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1133.7775ms
+2023-05-23 18:26:05.507 +04:00  INF  Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:26:05.625 +04:00  INF  Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:26:05.636 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:26:05.640 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:26:05.661 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 18:26:05.683 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 18:26:06.089 +04:00  INF  Executed DbCommand (25ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 18:26:06.104 +04:00  INF  Starting...
+2023-05-23 18:26:06.149 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 18:26:06.403 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 18:26:06.405 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 18:26:06.409 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 18:26:06.411 +04:00  INF  Hosting environment: Development
+2023-05-23 18:26:06.412 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 18:26:06.872 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 18:26:07.424 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 558.2960ms
+2023-05-23 18:26:07.475 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 18:26:07.492 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 15.9851ms
+2023-05-23 18:26:07.543 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 18:26:07.620 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 76.9128ms
+2023-05-23 18:26:07.938 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 18:26:08.793 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 855.5494ms
+2023-05-23 18:33:17.736 +04:00  INF  Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:33:17.823 +04:00  INF  Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:33:17.829 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:33:17.833 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:33:17.854 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 18:33:17.877 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 18:33:18.276 +04:00  INF  Executed DbCommand (22ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 18:33:18.288 +04:00  INF  Starting...
+2023-05-23 18:33:18.318 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 18:33:18.556 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 18:33:18.562 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 18:33:18.567 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 18:33:18.570 +04:00  INF  Hosting environment: Development
+2023-05-23 18:33:18.572 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 18:33:19.104 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 18:33:19.535 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 432.7974ms
+2023-05-23 18:33:19.568 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 18:33:19.568 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 18:33:19.616 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 47.5788ms
+2023-05-23 18:33:19.796 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 227.2256ms
+2023-05-23 18:33:19.950 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 18:33:20.821 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 871.2262ms
+2023-05-23 18:34:13.382 +04:00  INF  Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:34:13.513 +04:00  INF  Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:34:13.522 +04:00  INF  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 18:34:13.526 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 18:34:13.563 +04:00  INF  Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 18:34:13.600 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 18:34:14.430 +04:00  INF  Executed DbCommand (122ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 18:34:14.445 +04:00  INF  Starting...
+2023-05-23 18:34:14.491 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 18:34:14.777 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 18:34:14.791 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 18:34:14.795 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 18:34:14.797 +04:00  INF  Hosting environment: Development
+2023-05-23 18:34:14.799 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 18:34:15.250 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 18:34:15.948 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 703.8670ms
+2023-05-23 18:34:15.983 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 18:34:15.983 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 18:34:16.033 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 48.5481ms
+2023-05-23 18:34:16.210 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 226.1316ms
+2023-05-23 18:34:16.368 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 18:34:17.379 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1010.4936ms
+2023-05-23 19:38:16.737 +04:00  INF  Executed DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 19:38:16.933 +04:00  INF  Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 19:38:16.939 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 19:38:16.943 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 19:38:16.970 +04:00  INF  Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 19:38:17.004 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 19:38:17.683 +04:00  INF  Executed DbCommand (120ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 19:38:17.701 +04:00  INF  Starting...
+2023-05-23 19:38:17.754 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 19:38:18.228 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 19:38:18.242 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 19:38:18.246 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 19:38:18.247 +04:00  INF  Hosting environment: Development
+2023-05-23 19:38:18.248 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 19:38:19.278 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 19:38:20.241 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 965.6587ms
+2023-05-23 19:38:20.268 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 19:38:20.269 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 19:38:20.297 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 28.5410ms
+2023-05-23 19:38:20.823 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 554.7252ms
+2023-05-23 19:38:21.204 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 19:38:22.662 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1458.1992ms
+2023-05-23 19:39:53.858 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/v1/Movies/GetAllMovies - -
+2023-05-23 19:39:55.144 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-23 19:39:55.221 +04:00  INF  Route matched with {action = "GetAllMovies", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[SigmaMovies.Application.Movies.Responses.MovieResponseModel]] GetAllMovies(System.Threading.CancellationToken, SigmaMovies.Application.Pagination.PaginationFilter, System.Nullable`1[SigmaMovies.Application.HelperModels.SortBy], System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-23 19:39:55.796 +04:00  INF  Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Movies] AS [m]
+2023-05-23 19:39:55.874 +04:00  WRN  The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-05-23 19:39:55.879 +04:00  WRN  The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-05-23 19:39:56.229 +04:00  INF  Executed DbCommand (49ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Metadata_Genre], [t].[Metadata_Hr], [t].[Metadata_Year], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Metadata_Genre], [m].[Metadata_Hr], [m].[Metadata_Year], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-23 19:39:56.913 +04:00  INF  Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SigmaMovies.Application.Movies.Responses.MovieResponseModel, SigmaMovies.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-23 19:39:56.934 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API) in 1699.136ms
+2023-05-23 19:39:56.939 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-23 19:39:56.971 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/v1/Movies/GetAllMovies - - - 200 - application/json;+charset=utf-8 3113.8842ms
+2023-05-23 19:40:04.027 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/v1/Movies/GetAllMovies - -
+2023-05-23 19:40:04.044 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-23 19:40:04.053 +04:00  INF  Route matched with {action = "GetAllMovies", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[SigmaMovies.Application.Movies.Responses.MovieResponseModel]] GetAllMovies(System.Threading.CancellationToken, SigmaMovies.Application.Pagination.PaginationFilter, System.Nullable`1[SigmaMovies.Application.HelperModels.SortBy], System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-23 19:40:04.198 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Movies] AS [m]
+2023-05-23 19:40:04.219 +04:00  INF  Executed DbCommand (15ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Metadata_Genre], [t].[Metadata_Hr], [t].[Metadata_Year], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Metadata_Genre], [m].[Metadata_Hr], [m].[Metadata_Year], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-23 19:40:04.230 +04:00  INF  Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SigmaMovies.Application.Movies.Responses.MovieResponseModel, SigmaMovies.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-23 19:40:04.233 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API) in 167.1197ms
+2023-05-23 19:40:04.235 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-23 19:40:04.247 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/v1/Movies/GetAllMovies - - - 200 - application/json;+charset=utf-8 219.7169ms
+2023-05-23 20:07:07.647 +04:00  INF  Executed DbCommand (148ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 20:07:08.048 +04:00  INF  Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 20:07:08.057 +04:00  INF  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 20:07:08.067 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 20:07:08.125 +04:00  INF  Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 20:07:08.170 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 20:07:08.716 +04:00  INF  Executed DbCommand (41ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 20:07:08.736 +04:00  INF  Starting...
+2023-05-23 20:07:08.773 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 20:07:09.035 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 20:07:09.038 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 20:07:09.043 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 20:07:09.045 +04:00  INF  Hosting environment: Development
+2023-05-23 20:07:09.046 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 20:07:09.542 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 20:07:10.128 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 576.3886ms
+2023-05-23 20:07:10.168 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 20:07:10.169 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 20:07:10.188 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 19.5453ms
+2023-05-23 20:07:10.355 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 185.5409ms
+2023-05-23 20:07:10.509 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 20:07:11.560 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1051.2252ms
+2023-05-23 20:08:11.053 +04:00  INF  Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 20:08:11.154 +04:00  INF  Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 20:08:11.160 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 20:08:11.165 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 20:08:11.186 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 20:08:11.227 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 20:08:11.663 +04:00  INF  Executed DbCommand (35ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 20:08:11.682 +04:00  INF  Starting...
+2023-05-23 20:08:11.727 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 20:08:12.007 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 20:08:12.017 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 20:08:12.022 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 20:08:12.024 +04:00  INF  Hosting environment: Development
+2023-05-23 20:08:12.025 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 20:08:12.461 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 20:08:13.003 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 542.8924ms
+2023-05-23 20:08:13.064 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 20:08:13.064 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 20:08:13.089 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 24.4439ms
+2023-05-23 20:08:13.196 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 132.4165ms
+2023-05-23 20:08:13.328 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 20:08:14.343 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1015.1219ms
+2023-05-23 20:11:20.816 +04:00  INF  Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 20:11:20.922 +04:00  INF  Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 20:11:20.929 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 20:11:20.933 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 20:11:20.955 +04:00  INF  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 20:11:21.003 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 20:11:21.470 +04:00  INF  Executed DbCommand (35ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 20:11:21.487 +04:00  INF  Starting...
+2023-05-23 20:11:21.533 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 20:11:21.924 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 20:11:21.926 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 20:11:21.930 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 20:11:21.932 +04:00  INF  Hosting environment: Development
+2023-05-23 20:11:21.933 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 20:11:22.422 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 20:11:22.992 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 574.0456ms
+2023-05-23 20:11:23.025 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 20:11:23.025 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 20:11:23.046 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 19.9897ms
+2023-05-23 20:11:23.521 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 496.0120ms
+2023-05-23 20:11:23.729 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 20:11:25.251 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1522.2283ms
+2023-05-23 20:12:28.415 +04:00  INF  Executed DbCommand (58ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 20:12:28.729 +04:00  INF  Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 20:12:28.741 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 20:12:28.746 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 20:12:28.783 +04:00  INF  Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 20:12:28.827 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 20:12:30.096 +04:00  INF  Executed DbCommand (45ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 20:12:30.120 +04:00  INF  Starting...
+2023-05-23 20:12:30.179 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 20:12:30.806 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 20:12:30.852 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 20:12:30.879 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 20:12:30.935 +04:00  INF  Hosting environment: Development
+2023-05-23 20:12:31.186 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 20:12:31.546 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 20:12:32.215 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 654.9302ms
+2023-05-23 20:12:32.262 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 20:12:32.263 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 20:12:32.290 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 27.4688ms
+2023-05-23 20:12:32.529 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 265.4652ms
+2023-05-23 20:12:32.901 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 20:12:34.317 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1416.9055ms
+2023-05-23 20:13:48.003 +04:00  INF  Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 20:13:48.169 +04:00  INF  Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 20:13:48.176 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 20:13:48.180 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 20:13:48.202 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 20:13:48.248 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 20:13:48.712 +04:00  INF  Executed DbCommand (30ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 20:13:48.727 +04:00  INF  Starting...
+2023-05-23 20:13:48.764 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 20:13:49.047 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 20:13:49.064 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 20:13:49.070 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 20:13:49.072 +04:00  INF  Hosting environment: Development
+2023-05-23 20:13:49.073 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 20:13:49.794 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 20:13:50.309 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 517.6671ms
+2023-05-23 20:13:50.382 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 20:13:50.388 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 20:13:50.451 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 68.2609ms
+2023-05-23 20:13:50.648 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 259.6183ms
+2023-05-23 20:13:50.761 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 20:13:51.471 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 709.5947ms
+2023-05-23 20:14:07.932 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/v1/Movies/GetAllMovies?sortBy=Year - -
+2023-05-23 20:14:08.119 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-23 20:14:08.159 +04:00  INF  Route matched with {action = "GetAllMovies", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[SigmaMovies.Application.Movies.Responses.MovieResponseModel]] GetAllMovies(System.Threading.CancellationToken, SigmaMovies.Application.Pagination.PaginationFilter, System.Nullable`1[SigmaMovies.Application.HelperModels.SortBy], System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-23 20:14:08.467 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Movies] AS [m]
+2023-05-23 20:14:08.513 +04:00  WRN  The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-05-23 20:14:08.516 +04:00  WRN  The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2023-05-23 20:14:08.786 +04:00  INF  Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Metadata_Genre], [t].[Metadata_Hr], [t].[Metadata_Year], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Metadata_Genre], [m].[Metadata_Hr], [m].[Metadata_Year], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    ORDER BY (SELECT 1)
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-23 20:14:09.464 +04:00  INF  Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SigmaMovies.Application.Movies.Responses.MovieResponseModel, SigmaMovies.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-23 20:14:09.495 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API) in 1319.9086ms
+2023-05-23 20:14:09.504 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-23 20:14:09.534 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/v1/Movies/GetAllMovies?sortBy=Year - - - 200 - application/json;+charset=utf-8 1602.6521ms
+2023-05-23 20:14:53.503 +04:00  INF  Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 20:14:53.603 +04:00  INF  Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 20:14:53.612 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-23 20:14:53.616 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-23 20:14:53.650 +04:00  INF  Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-23 20:14:53.691 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-23 20:14:54.191 +04:00  INF  Executed DbCommand (30ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-23 20:14:54.206 +04:00  INF  Starting...
+2023-05-23 20:14:54.247 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-23 20:14:54.611 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-23 20:14:54.618 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-23 20:14:54.622 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-23 20:14:54.624 +04:00  INF  Hosting environment: Development
+2023-05-23 20:14:54.625 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-23 20:14:55.333 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-23 20:14:55.874 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 545.2213ms
+2023-05-23 20:14:55.937 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-23 20:14:55.951 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 13.7423ms
+2023-05-23 20:14:56.046 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-23 20:14:56.127 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 80.9959ms
+2023-05-23 20:14:56.495 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-23 20:14:57.283 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 787.2393ms

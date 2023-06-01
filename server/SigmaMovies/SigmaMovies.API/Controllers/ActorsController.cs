@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using SigmaMovies.API.ModelExamples;
 using SigmaMovies.Application.Actors;
 using SigmaMovies.Application.Actors.Requests;
+using SigmaMovies.Application.Actors.Responses;
 using SigmaMovies.Domain.Actors;
 using Swashbuckle.AspNetCore.Filters;
 
@@ -30,7 +31,7 @@ namespace SigmaMovies.API.Controllers
         /// <response code="200">Returns an empty response.</response>
         [Route("GetAllActors")]
         [HttpGet]
-        public async Task<IActionResult> GetAllActors(CancellationToken cancellationToken)
+        public async Task<ActionResult<List<ActorResponseModel>>> GetAllActors(CancellationToken cancellationToken)
         {
             return Ok(await actorService.GetAllActors(cancellationToken));
         }

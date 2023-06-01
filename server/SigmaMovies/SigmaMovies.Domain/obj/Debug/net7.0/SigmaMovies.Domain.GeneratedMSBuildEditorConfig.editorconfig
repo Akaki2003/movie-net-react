@@ -8,4 +8,8 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SigmaMovies.Domain
+<<<<<<< HEAD
 build_property.ProjectDir = D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\
+=======
+build_property.ProjectDir = d:\projects\movie-react-net\server\SigmaMovies\SigmaMovies.Domain\
+>>>>>>> f3a29f2de94901bd17773bd75facc14b8e7ce12b
