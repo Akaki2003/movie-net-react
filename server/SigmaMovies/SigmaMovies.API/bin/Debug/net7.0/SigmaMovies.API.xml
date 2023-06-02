@@ -62,7 +62,7 @@
         </member>
         <member name="M:SigmaMovies.API.Controllers.MoviesController.GetAllMovies(System.Threading.CancellationToken,SigmaMovies.Application.Pagination.PaginationFilter,System.Nullable{SigmaMovies.Application.HelperModels.SortBy},System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean})">
             <summary>
-            Retrieves a list of all movies.
+            Retrieves a list of all movies and total number of pages.
             </summary>
             <param name="cancellationToken">The cancellation token.</param>
             <param name="paginationFilter">The movie's pagination filter.</param>

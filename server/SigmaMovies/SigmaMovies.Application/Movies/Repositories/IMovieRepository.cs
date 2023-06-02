@@ -16,7 +16,7 @@ namespace SigmaMovies.Application.Movies.Repositories
         Task Delete(int id, CancellationToken cancellationToken);
         void Detach(Actor actor);
         Task<bool> Exists(int id, CancellationToken cancellationToken);
-        Task<PagedList<Movie>> GetAllMovies(CancellationToken cancellationToken, PaginationFilter paginationFilter);
+        Task<PagedList<Movie>> GetAllMovies(CancellationToken cancellationToken, PaginationFilter paginationFilter, string? sortBy = null, string? genre = null, int? year = null, bool? isDeleted = null);
         Task<Movie> GetMovieById(int id, CancellationToken cancellationToken);
         Task Update(Movie movie, CancellationToken cancellationToken);
     }

@@ -40,29 +40,8 @@ namespace SigmaMovies.Application.Movies
 
         public async Task<(List<MovieResponseModel> Movies, int TotalPages)> GetAllMovies(CancellationToken cancellationToken, PaginationFilter paginationFilter, string? sortBy = null, string? genre = null, int? year = null, bool? isDeleted = null)
         {
-            var movies = await _repository.GetAllMovies(cancellationToken, paginationFilter);
-            var totalPages = movies.TotalPages;
-
-            var filteredMovies = movies
-                .Where(x => string.IsNullOrEmpty(genre) || x.Metadata.Genre == genre)
-                .Where(x => !year.HasValue || x.Metadata.Year == year.Value)
-                .Where(x => !isDeleted.HasValue || isDeleted.Value == x.IsDeleted)
-                .ToList();
-
-            if (string.IsNullOrEmpty(sortBy))
-            {
-                return (filteredMovies.Adapt<List<MovieResponseModel>>(), totalPages);
-            }
-            var result = sortBy.ToLower() switch
-            {
-
-                "year" => filteredMovies.OrderByDescending(x => x.Metadata.Year),
-                "imdbrating" => filteredMovies.OrderByDescending(x => x.Rating.IMDb),
-                "rtrating" => filteredMovies.OrderByDescending(x => x.Rating.RottenTomatoes),
-                _ => default  
-            };
-            if(result is null) return (filteredMovies.Adapt<List<MovieResponseModel>>(), totalPages);
-            return (result.Adapt<List<MovieResponseModel>>(), totalPages);
+            var movies = await _repository.GetAllMovies(cancellationToken, paginationFilter,sortBy,genre,year,isDeleted);
+            return (movies.Adapt<List<MovieResponseModel>>(), movies.TotalPages);
         }
 
 
