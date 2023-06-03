@@ -14,10 +14,7 @@ namespace SigmaMovies.API.Controllers
 
         private readonly IOptions<JWTConfiguration> _options;
 
-        public AuthorizationController(
-            IUserService userService,
-            IOptions<JWTConfiguration> options
-        )
+        public AuthorizationController(IUserService userService,IOptions<JWTConfiguration> options)
         {
             _userService = userService;
             _options = options;

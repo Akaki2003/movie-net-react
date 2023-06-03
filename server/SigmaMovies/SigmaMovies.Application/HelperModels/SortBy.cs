@@ -6,7 +6,7 @@ namespace SigmaMovies.Application.HelperModels
     public enum SortBy
     {
         Year,
-        IMDbRating,
-        RTRating
+        IMDb,
+        RottenTomatoes
     }
 }

@@ -9,6 +9,7 @@ using SigmaMovies.Infrastructure.Actors;
 using SigmaMovies.Infrastructure.Movies;
 using SigmaMovies.Infrastructure.UOW;
 using SigmaMovies.Infrastructure.Users;
+using SigmaMovies.Persistence;
 
 namespace SigmaMovies.API.Infrastructure.Extensions
 {
@@ -21,6 +22,7 @@ namespace SigmaMovies.API.Infrastructure.Extensions
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IActorService, ActorService>();
+            services.AddScoped<ConnectionStrings>();
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
