@@ -21,7 +21,7 @@ namespace SigmaMovies.Infrastructure.Movies
         public async Task<PagedList<Movie>> GetAllMovies(CancellationToken cancellationToken, PaginationFilter paginationFilter, string? sortBy = null, string? genre = null, int? year = null, bool? isDeleted = null)
         {
             var filteredMovies = _dbSet.Include(x => x.Actors)
-                .Where(x => string.IsNullOrEmpty(genre) || x.Metadata.Genre == genre)
+                .Where(x => string.IsNullOrEmpty(genre) || x.Metadata.Genre.Contains(genre))
            .Where(x => !year.HasValue || x.Metadata.Year == year.Value)
            .Where(x => !isDeleted.HasValue || isDeleted.Value == x.IsDeleted)
                 .OrderByDescending(x => x.Id);
@@ -33,8 +33,8 @@ namespace SigmaMovies.Infrastructure.Movies
             var result = sortBy.ToLower() switch
             {
                 "year" => filteredMovies.OrderByDescending(x => x.Metadata.Year),
-                "imdbrating" => filteredMovies.OrderByDescending(x => x.Rating.IMDb),
-                "rtrating" => filteredMovies.OrderByDescending(x => x.Rating.RottenTomatoes),
+                "imdb" => filteredMovies.OrderByDescending(x => x.Rating.IMDb),
+                "rottentomatoes" => filteredMovies.OrderByDescending(x => x.Rating.RottenTomatoes),
                 _ => default
             };
             if (result is null) return await PagedList<Movie>.ToPagedListAsync(filteredMovies, paginationFilter.PageNumber, paginationFilter.PageSize);
