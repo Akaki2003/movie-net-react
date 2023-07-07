@@ -32,7 +32,7 @@ const AuthSlice = createSlice({
       state.text === action.payload
     },
     LogOut: (state) => {
-      console.log('logout')
+      ;('logout')
       const cookies = new Cookies()
       state.userDecoded = {}
       cookies.remove('jwt_authorization')

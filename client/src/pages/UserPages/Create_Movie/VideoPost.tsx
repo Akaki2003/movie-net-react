@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getVideo } from '../../../redux/features/slices/CreateMovieSlice'
 const Video = () => {
   const style = {
-    main: `  w-[700px] h-[400px] bg-gray-300 boxshaddow rounded-[12px] flex flex-col items-center justify-around `,
+    main: `  w-[90%] h-[400px] bg-gray-300 boxshaddow rounded-[12px] flex flex-col items-center justify-around `,
     input: `outline-none text-gray-400  px-2 rounded-[5px] h-[2.3rem]   w-[95%]    outline-none   shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium   `,
     video: `w-[95%] h-[300px] rounded-[12px] boxshaddow`,
   }

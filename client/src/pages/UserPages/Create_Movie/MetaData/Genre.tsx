@@ -8,7 +8,7 @@ const Genre = () => {
   const style = {
     movieGen: `flex flex-col items-center  justify-center gap-2`,
     genInput: `outline-none text-center rounded-[10px] w-[9rem] h-[2rem]`,
-    genreDiv: ` z-10  flex flex-col absolute top-[44rem] bg-gray-200 boxshaddow w-[9rem] max-h-[9rem] rounded-[15px] items-center text-[1.1rem] overflow-y-scroll  element-without-scrollbar py-1  `,
+    genreDiv: ` z-10  flex flex-col absolute top-[41rem] bg-gray-200 boxshaddow w-[9rem] max-h-[9rem] rounded-[15px] items-center text-[1.1rem] overflow-y-scroll  element-without-scrollbar py-1  `,
   }
 
   const dispatch = useDispatch()
@@ -30,7 +30,7 @@ const Genre = () => {
         setGenreArray((prevArray) => [...prevArray, genre])
       }
     }
-    // console.log(genreArray)
+    // (genreArray)
     dispatch(getGenre(genreArray.toString()))
   }
   const RemoveGenre = (genere: string) => {
@@ -38,7 +38,7 @@ const Genre = () => {
     setGenreArray(newArr)
   }
   // React.useEffect(() => {
-  //   console.log()
+  //   ()
   // }, [genreArray])
   return (
     <div ref={dropDownRef} className={style.movieGen}>

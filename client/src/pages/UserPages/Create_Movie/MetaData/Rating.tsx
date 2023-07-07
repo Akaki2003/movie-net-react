@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import imdb from '../../../../assets/icons/imdb.png'
+import IMDb from '../../../../assets/icons/IMDb.png'
 import tomato from '../../../../assets/icons/tomato.png'
 import { useDispatch } from 'react-redux'
 import {
-  getImDb,
+  getIMDb,
   getTomatos,
 } from '../../../../redux/features/slices/CreateMovieSlice'
 const Rating = () => {
@@ -13,16 +13,16 @@ const Rating = () => {
   }
   const dispatch = useDispatch()
   const [tomatoRating, setTomatoRating] = useState<number>(0)
-  const [imdbRating, setImdbRating] = useState<number>(0)
+  const [IMDbRating, setIMDbRating] = useState<number>(0)
 
   const handleTomatoRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTomatoRating(Number(e.target.value))
     dispatch(getTomatos(String(e.target.value)))
   }
 
-  const handleImdbRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setImdbRating(Number(e.target.value))
-    dispatch(getImDb(String(e.target.value)))
+  const handleIMDbRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIMDbRating(Number(e.target.value))
+    dispatch(getIMDb(String(e.target.value)))
   }
 
   return (
@@ -42,16 +42,16 @@ const Rating = () => {
       </div>
       <div className="flex gap-2 items-center justify-center w-[200px]">
         <input
-          value={imdbRating}
+          value={IMDbRating}
           type="range"
           min={1.0}
           max={10.0}
           step={0.1}
-          onChange={handleImdbRatingChange}
+          onChange={handleIMDbRatingChange}
         />
-        <img className="w-[30px]" src={imdb} alt="IMDb" />
+        <img className="w-[30px]" src={IMDb} alt="IMDb" />
         <div className="w-[5rem]  text-center flex items-center justify-center text-yellow-700">
-          {imdbRating}
+          {IMDbRating}
           /10
         </div>
       </div>

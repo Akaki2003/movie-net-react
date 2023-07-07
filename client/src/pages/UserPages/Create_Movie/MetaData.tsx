@@ -5,7 +5,7 @@ import Year from './MetaData/Year'
 import Rating from './MetaData/Rating'
 const MetaData = () => {
   const style = {
-    mainDiv: `w-[710px] h-[340px]  bg-gray-300 boxshaddow rounded-[10px] flex flex-col items-center justify-around py-10`,
+    mainDiv: `w-[90%] h-[340px]  bg-gray-300 boxshaddow rounded-[10px] flex flex-col items-center justify-around py-10`,
   }
 
   return (

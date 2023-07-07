@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import imdb from '../../../assets/icons/imdb.png'
+import IMDb from '../../../assets/icons/IMDb.png'
 import tomato from '../../../assets/icons/tomato.png'
 import { UpdatedValuesType } from './UpdateMovie'
 
@@ -32,16 +32,16 @@ const Rating: FC<inputProps> = ({ updateValues, type, setUpdatedValues }) => {
       </div>
       {/* <div className="flex gap-2 items-center justify-center w-[200px]">
         <input
-          value={imdbRating}
+          value={IMDbRating}
           type="range"
           min={1.0}
           max={10.0}
           step={0.1}
-          onChange={handleImdbRatingChange}
+          onChange={handleIMDbRatingChange}
         />
-        <img className="w-[30px]" src={imdb} alt="IMDb" />
+        <img className="w-[30px]" src={IMDb} alt="IMDb" />
         <div className="w-[5rem]  text-center flex items-center justify-center text-yellow-700">
-          {imdbRating}
+          {IMDbRating}
           /10
         </div>
       </div> */}

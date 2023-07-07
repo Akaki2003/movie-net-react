@@ -7,7 +7,7 @@ import {
 import { useDispatch } from 'react-redux'
 const TitleAndDec = () => {
   const style = {
-    mainDiv: `flex flex-col h-[300px] w-[500px] items-center  gap-2`,
+    mainDiv: `flex flex-col h-[300px] w-[59%]  max_lg:w-[100%] items-center  gap-2`,
   }
   const dispatch = useDispatch()
   return (

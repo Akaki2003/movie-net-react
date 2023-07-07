@@ -15,6 +15,7 @@ module.exports = {
       // => @media (max-height: 900px) { ...
       //widths
       xm: '500px',
+      min_smm1: '565px',
       sm: '640px',
       // => @media (min-width: 640px) { ... }
 

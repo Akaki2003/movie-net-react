@@ -5,7 +5,7 @@ import useOutClick from '../../../../Hooks/useOutClick'
 const Year = () => {
   const dispatch = useDispatch()
   const style = {
-    yearDiv: ` z-10  flex flex-col absolute top-[27rem] bg-gray-200 boxshaddow w-[9rem] max-h-[9rem] rounded-[15px] items-center text-[1.1rem] overflow-y-scroll  element-without-scrollbar py-1  `,
+    yearDiv: ` z-10  flex flex-col absolute top-[41rem] bg-gray-200 boxshaddow w-[9rem] max-h-[9rem] rounded-[15px] items-center text-[1.1rem] overflow-y-scroll  element-without-scrollbar py-1  `,
     yearInput: `outline-none text-center rounded-[10px] w-[9rem] h-[2rem]`,
     movieLength: `flex flex-col items-center  justify-center gap-2`,
   }

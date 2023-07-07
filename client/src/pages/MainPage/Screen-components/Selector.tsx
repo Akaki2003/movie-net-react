@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react'
 import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa'
+import { filmData } from '../../../assets/dummydata/data'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   selectorHanddler,
@@ -15,6 +16,7 @@ type SelectorProps = {
 
 const Selector: FC<SelectorProps> = ({ StopInterval, stopInreval }) => {
   const movieData = useSelector((state: any) => state.data.movieData)
+
   const dispatch = useDispatch()
   const style = {
     mainDiv: `flex flex    w-[100%] justify-end pr-40   gap-2   `,
@@ -24,7 +26,7 @@ const Selector: FC<SelectorProps> = ({ StopInterval, stopInreval }) => {
   }
   const i = useSelector((state: any) => state.slide.index)
   const [mouseOver, setMouseOver] = React.useState<boolean[]>(
-    new Array(movieData.length).fill(false),
+    new Array(filmData?.length).fill(false),
   )
   const mouseIn = (index: number) => {
     let newVal = [...mouseOver]
@@ -39,9 +41,9 @@ const Selector: FC<SelectorProps> = ({ StopInterval, stopInreval }) => {
 
   useEffect(() => {
     if (!stopInreval) {
-      console.log('incremen')
+      ;('incremen')
       let interval = setTimeout(() => {
-        dispatch(increment(movieData.length))
+        dispatch(increment(filmData?.length))
       }, 3000)
 
       return () => clearInterval(interval)
@@ -51,19 +53,19 @@ const Selector: FC<SelectorProps> = ({ StopInterval, stopInreval }) => {
     <section className="flex   items-center    w-[100%]    ">
       <div className={style.btnWrapper}>
         <FaArrowCircleLeft
-          onClick={() => dispatch(decrement(movieData.length))}
+          onClick={() => dispatch(decrement(filmData?.length))}
           className={style.icon}
         />{' '}
         <FaArrowCircleRight
-          onClick={() => dispatch(increment(movieData.length))}
+          onClick={() => dispatch(increment(filmData?.length))}
           className={style.icon}
         />
       </div>
       <m.div className={style.mainDiv}>
-        {movieData.map((val: any, index: number) => {
+        {filmData?.map((val: any, index: number) => {
           return (
             <m.div
-              key={movieData.color1}
+              key={val.id}
               onClick={() => {
                 dispatch(selectorHanddler(index)), StopInterval()
               }}

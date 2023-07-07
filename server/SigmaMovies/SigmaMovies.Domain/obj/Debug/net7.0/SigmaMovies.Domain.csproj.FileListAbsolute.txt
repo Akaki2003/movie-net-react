@@ -22,3 +22,15 @@ D:\projects\movie-react-net\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7
 D:\projects\movie-react-net\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\refint\SigmaMovies.Domain.dll
 D:\projects\movie-react-net\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.pdb
 D:\projects\movie-react-net\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\ref\SigmaMovies.Domain.dll
+C:\Users\User\Desktop\server\SigmaMovies\SigmaMovies.Domain\bin\Debug\net7.0\SigmaMovies.Domain.deps.json
+C:\Users\User\Desktop\server\SigmaMovies\SigmaMovies.Domain\bin\Debug\net7.0\SigmaMovies.Domain.dll
+C:\Users\User\Desktop\server\SigmaMovies\SigmaMovies.Domain\bin\Debug\net7.0\SigmaMovies.Domain.pdb
+C:\Users\User\Desktop\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.AssemblyInfo.cs
+C:\Users\User\Desktop\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.dll
+C:\Users\User\Desktop\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\refint\SigmaMovies.Domain.dll
+C:\Users\User\Desktop\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.pdb
+C:\Users\User\Desktop\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\ref\SigmaMovies.Domain.dll

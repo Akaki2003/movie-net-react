@@ -17,14 +17,9 @@ h1 {
 }
 
 body {
-  background: rgb(4, 12, 14);
-  background: linear-gradient(
-    313deg,
-    #040c0e 0%,
-    #132226 63%,
-    rgba(54, 58, 55, 1) 89%,
-    rgba(111, 99, 84, 1) 100%
-  );
+  background-image: url('./assets/background/blade-runner.jpg');
+
+  background-color: #0e1020;
 }
 .dropdownbg {
   background: rgb(4, 12, 14);
@@ -208,4 +203,31 @@ how to remove the virtical space around the range input in IE*/
     margin: 0;
     /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
+}
+.hartHover {
+  color: white;
+}
+.hartHover:hover {
+  color: #ff10f0;
+}
+
+.rotate {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Zindex {
+  z-index: 100000;
+}
+
+.ZindexMinus {
+  z-index: 10;
 }

@@ -10,7 +10,7 @@ const Description: FC<DescriptionTypeProps> = ({ dec, color2, color1 }) => {
   return (
     <m.div
       className="absolute  w-[500px] text-[14px]  text-start font-medium  "
-      style={{ backgroundColor: `${color1}` }}
+      // style={{  }}
     >
       <p style={{ color: color2 }}>{dec}</p>
     </m.div>

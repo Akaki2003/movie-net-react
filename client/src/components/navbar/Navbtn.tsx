@@ -11,7 +11,7 @@ type NavBtwnProp = {
 const Navbtn: FC<NavBtwnProp> = ({ title, fun, Icon }) => {
   return (
     <div
-      className="w-[270px] gap-1 h-[2.3rem]flex items-center justify-center flex-col cursor-pointer   rounded-[20px]"
+      className="w-[270px] z-50 gap-1 h-[2.3rem]flex items-center justify-center flex-col cursor-pointer   rounded-[20px]"
       onClick={fun}
     >
       <button className="  text-[1.2rem] flex items-center  justify-around  w-[90%]  hover:text-red-600 hover:bg-gray-900 rounded-t-[10px] pt-2  text-[#cf1b4e] ">

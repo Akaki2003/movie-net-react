@@ -12,10 +12,7 @@ const Actors: FC<ActorPropType> = ({ actors, color1, color2 }) => {
     img: `w-[190px] h-[190px] rounded-[20px] boxshaddow`,
   }
   return (
-    <div
-      className="flex justify-between items-center w-[600px] gap0 h-[400px] absolute  "
-      style={{ backgroundColor: color1 }}
-    >
+    <div className="flex justify-between items-center w-[600px] gap0 h-[400px] absolute  ">
       {actors.map((val: { name: string; img: string }) => {
         return (
           <div

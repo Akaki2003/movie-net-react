@@ -9,10 +9,13 @@ type initialStateType = {
   genere: string
   actorName: string
   img: string
-  imDb: number
-  rottenTomatoes: string
+  IMDb: number
+  RottenTomatos: string
   video: string
-  actors: string[]
+  actors: {
+    name: string
+    img: string
+  }[]
 }
 
 const initialState: initialStateType = {
@@ -24,8 +27,8 @@ const initialState: initialStateType = {
   genere: '',
   actorName: '',
   img: '',
-  imDb: 0,
-  rottenTomatoes: '',
+  IMDb: 0,
+  RottenTomatos: '',
   video: '',
   actors: [],
 }
@@ -43,16 +46,19 @@ const CreateMovieSlice = createSlice({
     getPhotoUrl: (state, action) => {
       state.photoUrl = action.payload
     },
+    removePhotoUrl: (state) => {
+      state.photoUrl = ''
+    },
     getLength: (state, action) => {
       state.length = action.payload
-      // console.log(action.payload)
+      // (action.payload)
     },
     getYear: (state, action) => {
-      console.log(action.payload)
+      action.payload
       state.year = action.payload
     },
     getGenre: (state, action) => {
-      // console.log(action.payload)
+      // (action.payload)
       state.genere = action.payload
     },
     getActor: (state, action) => {
@@ -61,16 +67,17 @@ const CreateMovieSlice = createSlice({
     getImg: (state, action) => {
       state.img = action.payload
     },
-    getImDb: (state, action) => {
-      state.imDb = action.payload
+    getIMDb: (state, action) => {
+      state.IMDb = action.payload
     },
     getTomatos: (state, action) => {
-      state.rottenTomatoes = action.payload
+      state.RottenTomatos = action.payload
     },
     getVideo: (state, action) => {
       state.video = action.payload
     },
     getActors: (state, action) => {
+      action.payload(state.actors)
       state.actors = action.payload
     },
   },
@@ -81,12 +88,13 @@ export const {
   getTitle,
   getDescription,
   getPhotoUrl,
+  removePhotoUrl,
   getLength,
   getYear,
   getGenre,
   getActor,
   getImg,
-  getImDb,
+  getIMDb,
   getTomatos,
   getVideo,
   getActors,

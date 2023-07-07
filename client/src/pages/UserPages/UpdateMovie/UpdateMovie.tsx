@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import InputComponent from './InputComponent'
 import TextareaComponent from './TextareaComponent'
 import ImgUpload from './ImgComponent'
 import { useMainContext } from '../../../context'
 import { SketchPicker } from 'react-color'
-
-import { UpdateMovieThunk } from '../../../redux/features/Thunks/MovieCrud'
+import { MovieClass } from '../../../blue-prints/movie-class'
+import {
+  GetAllMovies,
+  UpdateMovieThunk,
+} from '../../../redux/features/Thunks/MovieCrud'
 import { ThunkDispatch } from '@reduxjs/toolkit'
+import LoadingComponent from '../../../components/Loading'
 export type UpdatedValuesType = {
   color: string
   color2: string
@@ -17,7 +21,9 @@ const UpdateMovie = () => {
   const { htmlImg } = useMainContext()
   const movieData = useSelector((state: any) => state.data.movieData)
   const { id } = useParams()
-  const singleMovie = movieData?.find((val: any) => String(val.id) === id)
+  const singleMovie = movieData?.data?.find(
+    (val: any) => String(val._id) === id,
+  )
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const [titleState, setTitleState] = useState<string>('')
   const [yearState, setYearState] = useState<string>('')
@@ -29,7 +35,7 @@ const UpdateMovie = () => {
     color: '',
     color2: '',
   })
-
+  const [video, setVideo] = useState<string>('')
   React.useEffect(() => {
     if (
       singleMovie &&
@@ -39,13 +45,14 @@ const UpdateMovie = () => {
     ) {
       const { color, color2, description, img, title, video } = singleMovie
       const { hr, year, genre } = singleMovie.metadata
-      // const { imDb, rottenTomatoes } = singleMovie.rating
+      // const { IMDb, RottenTomatos } = singleMovie.rating
       setTitleState(title)
       setYearState(year)
       setHrState(hr)
       setGenreState(genre)
       setDescriptionState(description)
       setImageState(img)
+      setVideo(video)
       setUpdatedValues({
         color,
         color2,
@@ -64,6 +71,7 @@ const UpdateMovie = () => {
       mainDiv: ` h-[1300px] gap-5 py-10 w-[60%] flex flex-col items-center    backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow flex   `,
       metaData: `flex flex-col items-center  gap-4 w-[100%]`,
       colorImgDiv: `boxshaddow w-[240px] flex-col h-[350px] bg-gray-300 flex items-center justify-center rounded-[20px]`,
+      video: `w-[90%] h-[550px] rounded-[22px] boxshaddow     `,
     }
 
     const metaDataArr = [
@@ -77,9 +85,28 @@ const UpdateMovie = () => {
     const handleColor = (color: any) => {
       setUpdatedValues({ ...updateValues, color: color.hex })
     }
-    const handleUpdate = () => {
-      dispatch(UpdateMovieThunk({ id: id || '', obj: updateValues }))
-      console.log(updateValues)
+    const navigate = useNavigate()
+
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const handleUpdate = async () => {
+      setIsLoading(true)
+      const obj = new MovieClass(
+        titleState,
+        Number(yearState),
+        hrState,
+        genreState,
+        descriptionState,
+        imageState,
+        updateValues.color,
+        updateValues.color2,
+        video,
+      )
+
+      await dispatch(UpdateMovieThunk({ _id: id || '', obj }))
+      setIsLoading(false)
+      await dispatch(GetAllMovies({ pages: 1, year: '', genre: '', sort: '' }))
+
+      navigate(`/movie/${id}`)
     }
     return (
       <section className={style.section}>
@@ -99,9 +126,10 @@ const UpdateMovie = () => {
               />
             ))}
           </div>
+          <LoadingComponent loading={isLoading} />
           <div className="flex  w-[90%] flex-col gap-5 ">
             <TextareaComponent
-              TITLE={'description'}
+              TITLE={'description '}
               state={descriptionState}
               setState={setDescriptionState}
             />
@@ -126,10 +154,24 @@ const UpdateMovie = () => {
               </div>
             </div>
           </div>
+          <InputComponent
+            TITLE={'Video Link'}
+            setState={setVideo}
+            state={video}
+          />
+          <iframe
+            // style={{ boxShadow: `2px 0.25rem 0.9rem ${color}` }}
+            className={style.video}
+            width="560"
+            height="415"
+            src={video}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          ></iframe>
 
           {/* <InputComponent
-            type={updateValues.rating['rottenTomatoes']}
-            TITLE={'rottenTomatoes%'}
+            type={updateValues.rating['RottenTomatos']}
+            TITLE={'RottenTomatos%'}
             updateValues={updateValues}
             setUpdatedValues={setUpdatedValues}
           /> */}
@@ -143,7 +185,7 @@ const UpdateMovie = () => {
       </section>
     )
   } else {
-    return <div>Loading</div>
+    return <div onClick={() => singleMovie}>Loading</div>
   }
 }
 

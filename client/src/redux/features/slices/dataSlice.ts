@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { movieDataType } from '../../../assets/dummydata/data'
 import { RootState } from '../../store/store'
 import { createSelector } from '@reduxjs/toolkit'
+import { GetAllMovies } from '../Thunks/MovieCrud'
 export const initialState = {
   movieData: [],
 }
@@ -13,6 +14,11 @@ const dataSlice = createSlice({
     getMovieData: (state, action) => {
       state.movieData = action.payload
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(GetAllMovies.fulfilled, (state, action) => {
+      state.movieData = action.payload
+    })
   },
 })
 

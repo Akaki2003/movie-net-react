@@ -9,7 +9,7 @@ type ImgProp = {
 const ImgUpload: FC<ImgProp> = ({ htmlImg }) => {
   const { imgUploadDrag, imgUpload, removeImgFromHtml } = useMainContext()
   return (
-    <div className="flex items-center justify-center h-[290px] w-[200px] ">
+    <div className="flex items-center justify-center h-[290px] relative w-[30%] ">
       <label
         onDrop={(e) => imgUploadDrag(e)}
         className="text-[2rem] h-[2.2rem]    items-center justify-center text-gray-400   cursor-pointer w-[20rem] rounded-[6px] flex "
@@ -17,7 +17,7 @@ const ImgUpload: FC<ImgProp> = ({ htmlImg }) => {
       >
         <div
           title="upload photo drag and drop "
-          className="w-[200px] z-10 h-[300px] boxshaddow  absolute bg-gray-300/10 hover:bg-gray-300/40       transition-all group-hover:w-full  rounded-[20px] flex items-center justify-center cursor-pointer"
+          className="  w-[100%] z-10 h-[300px] boxshaddow  absolute bg-gray-300/10 hover:bg-gray-300/40       transition-all group-hover:w-full  rounded-[20px] flex items-center justify-center cursor-pointer"
         >
           {htmlImg ? (
             <TbPhotoX
@@ -29,7 +29,7 @@ const ImgUpload: FC<ImgProp> = ({ htmlImg }) => {
           )}
         </div>
         <img
-          className="rounded-[20px] w-[200px] h-[300px] "
+          className="rounded-[20px]  w-[100%] h-[300px] "
           src={htmlImg ? htmlImg : uploadPhoto}
         />
         <input

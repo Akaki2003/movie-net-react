@@ -1,9 +1,10 @@
 import { ThunkDispatch, createAsyncThunk } from '@reduxjs/toolkit'
 import { getMovieData } from '../slices/dataSlice'
+import { baseUrl } from '../../../global-vars'
 
 import axios from 'axios'
 import { UpdatedValuesType } from '../../../pages/UserPages/UpdateMovie/UpdateMovie'
-type MovieObjectType = {
+export type MovieObjectType = {
   title: string
   color: string
   color2: string
@@ -12,58 +13,69 @@ type MovieObjectType = {
   description: string
 
   rating: {
-    imDb: number
-    rottenTomatoes: number
+    IMDb: number
+    RottenTomatos: number
   }
-  actors: string[]
+  actors: {
+    name: string
+    img: string
+    _id: string
+  }[]
   metadata: {
     hr: string
     year: number
     genre: string
   }
+  userId: string
 }
 
 type GetMoviesType = {
-  dispatch: ThunkDispatch<any, any, any>
+  pages: number
+  year: string
+  genre: string
+  sort: string
 }
+
 const CreateMovie = createAsyncThunk(
   'movie/post',
   async (obj: MovieObjectType) => {
-    const apiKey = `http://localhost:5119/v1/Movies/AddMovie`
+    const apiKey = `${baseUrl}/v1/Movies/AddMovie`
     await axios
       .post(apiKey, obj)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err))
+      .then((res) => res)
+      .catch((err) => err)
   },
 )
 
 const GetAllMovies = createAsyncThunk(
   'movie/get',
   async (val: GetMoviesType) => {
-    const apiKey = `http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false`
-
+    const apiKey = `${baseUrl}/v1/Movies/GetAllMovies?PageNumber=${String(
+      val.pages,
+    )}&PageSize=6&sortBy=${val.sort}&genre=${val.genre}&year=${val.year}`
+    // /GetAllMovies?PageNumber=3&PageSize=5&sortBy=Year&genre=ujas&year=2008&isDeleted=false
     const data = await axios
       .get(apiKey)
       .then((res) => res.data)
-      .catch((err) => console.log(err))
-    val.dispatch(getMovieData(data))
-    console.log(data)
+      .catch((err) => err)
+    return data
   },
 )
 
-const DeleteMovie = createAsyncThunk('movie/delete', async (id: number) => {
-  const apiUrl = `http://localhost:5119/v1/Movies/DeleteMovie/?id=${id}`
+const DeleteMovie = createAsyncThunk('movie/delete', async (_id: string) => {
+  const apiUrl = `${baseUrl}/v1/Movies/DeleteMovie/${String(_id)}`
 
   await axios
     .delete(apiUrl)
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err))
+    .then((res) => res)
+    .catch((err) => err)
 })
 
 const UpdateMovieThunk = createAsyncThunk(
-  'movie/patch',
-  async ({ id, obj }: { id: string; obj: UpdatedValuesType }) => {
-    const apiUrl = `http://localhost:5119/v1/Movies/UpdateMovie`
+  'movie/put',
+  async ({ _id, obj }: { _id: string; obj: UpdatedValuesType }) => {
+    const id = _id
+    const apiUrl = `${baseUrl}/v1/Movies/UpdateMovie/${id}`
 
     // obj.actors = [
     //   {
@@ -73,9 +85,9 @@ const UpdateMovieThunk = createAsyncThunk(
     //   },
     // ]
     await axios
-      .put(apiUrl, obj)
-      .then((res) => console.log(res))
-      .then((err) => console.log(err))
+      .patch(apiUrl, obj)
+      .then((res) => res)
+      .then((err) => err)
   },
 )
 export { CreateMovie, GetAllMovies, DeleteMovie, UpdateMovieThunk }
