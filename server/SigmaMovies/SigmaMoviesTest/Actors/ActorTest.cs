@@ -17,8 +17,8 @@ namespace SigmaMoviesTest.Actors
         private readonly ActorService actorService;
         private readonly CancellationToken cancellationToken = new CancellationToken();
 
-        private ActorRequestPutModelNoNested actorRequestPutModelNoNested;
-        private ActorRequestPutModel actorRequestPutModel;
+        private readonly ActorRequestPutModelNoNested actorRequestPutModelNoNested;
+        private readonly ActorRequestPutModel actorRequestPutModel;
 
         private int id;
         public ActorTest()
